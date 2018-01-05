@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Universe</title>
+    <script>
+        const TYPES = 5; // Types of particles in the universe, the least number of particles needed to describe all behaviors
+        const PI2 = 2.0 * Math.PI;
+        var N = 500; // Number of particles
+        var size = 850; // Dimension of universe
+        var step = 0, run = true;
+
+        // Particles' color
+        var color = ['#000000', '#FF0000', '#00FF00', '#0000FF', '#777777'];
+
+        // Particles' behavior matrix: 0 indifference, 1 attraction, -1 repulsion and {2|-2} attrapulsion
+        var behavior = [[-1, 0, -2, 1, 2], [0, -2, 1, -2, -1], [2, 1, 0, -1, -2], [1, 2, -1, 2, 0], [-2, -1, 2, 0, 1]];
+
+        // Behavior strength matrix: s / (r - 1 / sqrt(s)) ^ 2 (isotropic?)
+        var strength = [[1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1], [1, 1, 1, 1, 1]];
+
+        var universe, o, particles, ctx;
+        function init() {
+            universe = document.getElementById("Universe");
+            universe.addEventListener('click', function () {
+                run = !run;
+                if (run) window.requestAnimationFrame(evolve);
+            });
+            universe.width = size, universe.height = size;
+            ctx = universe.getContext("2d");
+
+            o = size / 2;
+
+            particles = new Array(N);
+            // Initialize universe as a singularity, i.e., all particles at the origin
+            for (var i = 0; i < N; ++i) {
+                particles[i] = { t: 3, x: 0, y: 0, vx: 0, vy: 0 };
+            }
+
+            window.requestAnimationFrame(evolve);
+        }
+        function evolve() {
+            var d, a, b, m, i, j, dx, dy;
+            for (i = 0; i < N; ++i) {
+                for (j = i + 1; j < N; ++j) {
+                    b = behavior[particles[i].t][particles[j].t];
+                    if (b !== 0) { // Handle non zero interaction
+                        dx = particles[j].x - particles[i].x, dy = particles[j].y - particles[i].y;
+
+                        // If the particles occupy the same position and they are not moving any direction will do; however,
+                        // whatever direction is taken by the first particle conditions the second (entanglement)
+                        if (dx === 0 && dy === 0) {
+                            if (b === 1)
+                                continue;
+
+                            // a = (particles[i].vx === 0 && particles[i].vy === 0) ? Math.random() * PI2 : Math.atan2(particles[i].vy, particles[i].vx);
+                            a = Math.random() * PI2;
+                            m = b;
+                        } else {
+                            a = Math.atan2(dy, dx);
+
+                            // Strength falls off from it's maximum value, at 0 distance, as square of the distance
+                            d = Math.sqrt(dx * dx + dy * dy);
+                            // m = b * strength[particles[i].t][particles[j].t] / Math.pow((d + 1 / Math.sqrt(strength[particles[i].t][particles[j].t])), 2);
+                            m = b / ((d + 1.0) * (d + 1.0)); // Simplified strength matrix (isotropicity)
+                        }
+
+                        if (b * b === 1) {
+                            particles[i].vx += m * Math.cos(a);
+                            particles[i].vy += m * Math.sin(a);
+                            particles[j].vx += m * Math.cos(a + Math.PI);
+                            particles[j].vy += m * Math.sin(a + Math.PI);
+                        } else {
+                            m /= 2.0;
+                            particles[i].vx -= m * Math.cos(a);
+                            particles[i].vy -= m * Math.sin(a);
+                            particles[j].vx -= m * Math.cos(a);
+                            particles[j].vy -= m * Math.sin(a);
+                        }
+                    }
+                }
+            }
+
+            ctx.clearRect(0, 0, size, size);
+            for (i = 0; i < N; ++i) {
+                // Inertia does not play at these dimensions, it manifest as a consequence of the model
+                // Relativistic speed
+
+                particles[i].x += particles[i].vx, particles[i].y += particles[i].vy;
+                particles[i].vx = 0, particles[i].vy = 0;
+
+                ctx.fillStyle = color[particles[i].t];
+                ctx.fillRect(o + particles[i].x, o - particles[i].y, 3, 3);
+            }
+
+            ++step;
+            if (run)
+                window.requestAnimationFrame(evolve);
+        }
+
+    </script>
+</head>
+<body onload="init()" style="text-align:center">
+    <canvas id="Universe" style="border:1px solid black;"></canvas>
+</body>
+</html>
