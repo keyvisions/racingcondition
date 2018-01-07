@@ -1,5 +1,5 @@
 # A universe driven by a racing interaction
-What if there were a fourth type of interaction in the universe? Along with repulsion, attraction, neutral let's assume a racing interaction&mdash;an interaction is the behavior between two entities. While the 3 fundamental interactions, repulsion, attraction and neurtal (indifference) are intuitive, the fourth, racing, requires an introduction: racing, or chase interaction, describes the behavior between two entities where one entity runs away from a second that chases it. Indifference between two entities indicates the total absence of interactions, i.e., pair of entities that exhibit indifference simply are not aware of each other existence.
+What if there were a fourth type of interaction in the universe? Along with repulsion, attraction, neutral let's assume a racing interaction&mdash;an interaction is the behavior between two entities. While the 3 fundamental interactions, repulsion, attraction and neutral (indifference) are intuitive, the fourth, racing, requires an introduction: racing, or chase interaction, describes the behavior between two entities where one entity runs away from a second that chases it. Indifference between two entities indicates the total absence of interactions, i.e., pair of entities that exhibit indifference simply are not aware of each other existence.
 
 ## Definitions
 The file universe.htm includes javascript code that simulates an N particles universe defined by behavior and strength matrices.
@@ -9,6 +9,7 @@ The file universe.htm includes javascript code that simulates an N particles uni
 ## Thoughts
 What about *U* = {a,b,c,d}?
 How about assigning the pure imaginary *i* to the racing interaction in the behavior matrix? This would allow for coefficents in the behavior matrix, i.e., coalesce the strength matrix in the behavior matrix. 
-How about *-i*?
+What about *-i*?
 Racing could be modelled in one of two ways: given entities a and b, a will always be chased by b (or viceversa), or a and b flip flop chase giving rise to jitter. Vibration? Uncertainty?
 
+## Implications
