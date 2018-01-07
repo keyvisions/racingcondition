@@ -3,7 +3,7 @@ What if there were a fourth type of interaction in the universe? Along with repu
 
 ## Definitions
 The file universe.htm includes javascript code that simulates an N particles universe defined by behavior and strength matrices.
-- Given a universe populated by 5 types of entities, *U* = {a,b,c,d,e}, let's define a 5x5 behavior matrix **B** where the element *b<sub>ij</sub>* indicates the interaction between the *i<sup>th</sup>* entity and the *j<sup>th</sup>* entity; *b<sub>ij</sub>* can assume the value: +1 if attraction, -1 if repulsion, 0 if neutral and -2, +2 if racing. *b<sub>ij</sub>* = *b<sub>ji</sub>* for all interaction except racing where *b<sub>ij</sub>* = -*b<sub>ji</sub>*
+- Given a universe populated by 5 types of entities, *U* = {a,b,c,d,e}, let's define a 5x5 behavior matrix **B** where the element *b<sub>ij</sub>* indicates the interaction between the *i<sup>th</sup>* entity type and the *j<sup>th</sup>* entity type; *b<sub>ij</sub>* can assume the value: +1 if attraction, -1 if repulsion, 0 if neutral and -2, +2 if racing. *b<sub>ij</sub>* = *b<sub>ji</sub>* for all interaction except racing where *b<sub>ij</sub>* = -*b<sub>ji</sub>*
 - The magnitude of an interaction between any two entities is proportional to the inverse of the square of their distance.
 
 ## Thoughts
