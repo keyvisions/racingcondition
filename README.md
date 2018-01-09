@@ -10,6 +10,6 @@ The file universe.htm includes javascript code that simulates an N particles uni
 What about *U* = {a,b,c,d}?
 How about assigning the pure imaginary *i* to the racing interaction in the behavior matrix? This would allow for coefficents in the behavior matrix, i.e., coalesce the strength matrix in the behavior matrix. 
 What about *-i*?
-Racing could be modelled in one of two ways: given entities a and b, a will always be chased by b (or viceversa), or a and b flip flop chase giving rise to jitter. Vibration? Uncertainty? Frequency of vibration?
+Racing could be modelled in one of two ways: given entities a and b, a will always be chased by b (or viceversa), or a and b flip flop chase giving rise to jitter. Vibration? Uncertainty? Frequency of vibration? Spin?
 
 ## Implications
