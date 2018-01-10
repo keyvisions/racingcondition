@@ -7,9 +7,10 @@ The file universe.htm includes javascript code that simulates an N particles uni
 - The magnitude of an interaction between any two entities is proportional to the inverse of the square of their distance.
 
 ## Thoughts
-What about *U* = {a,b,c,d}?
-How about assigning the pure imaginary *i* to the racing interaction in the behavior matrix? This would allow for coefficents in the behavior matrix, i.e., coalesce the strength matrix in the behavior matrix. 
-What about *-i*?
-Racing could be modelled in one of two ways: given entities a and b, a will always be chased by b (or viceversa), or a and b flip flop chase giving rise to jitter. Vibration? Uncertainty? Frequency of vibration? Spin?
+- What about *U* = {a,b,c,d}?
+- How about assigning the pure imaginary *i* to the racing interaction in the behavior matrix? This would allow for coefficents in the behavior matrix, i.e., coalesce the strength matrix in the behavior matrix. 
+- What about *-i*? Antigravity? Universal expansion?
+- Racing could be modelled in one of two ways: given entities a and b, a will always be chased by b (or viceversa), or a and b flip flop chase giving rise to jitter. Vibration? Uncertainty? Frequency of vibration? Spin?
+- Behavior matrix composed of complex numbers? Mimic racing condition as jittering of attraction/repulsion
 
 ## Implications
